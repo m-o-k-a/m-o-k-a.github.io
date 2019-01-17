@@ -1,0 +1,155 @@
+/* BODY */
+p, h1, ul{
+  animation: shake 3s;
+  animation-iteration-count: infinite;
+}
+
+
+body {
+    background: -moz-linear-gradient(lightseagreen, darkcyan); /* FF 3.6+ */
+    background: -ms-linear-gradient(lightseagreen, darkcyan); /* IE10 */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(100%, #20B2AA), color-stop(100%, darkcyan)); /* Safari 4+, Chrome 2+ */
+    background: -webkit-linear-gradient(lightseagreen, darkcyan); /* Safari 5.1+, Chrome 10+ */
+    background: -o-linear-gradient(lightseagreen, darkcyan); /* Opera 11.10 */
+    background: linear-gradient(lightseagreen, darkcyan) fixed; */
+    background-color: lightseagreen;
+    z-index: 1;
+    font-family: 'Merienda', cursive;
+    background-size: cover;
+    min-height: 100%;
+    text-shadow: 2px 2px lightseagreen;
+}
+
+/* TITTLE */
+h1.title {
+    color: white;
+    padding: -10px;
+    text-align: center;
+}
+h2.category {
+    color: white;
+    padding: -25px;
+}
+h2#b {text-align: left;}
+h2#c {text-align: center;}
+h2#d {text-align: right;}
+
+/* PARAGRAPH */
+p.title {
+    color: white;
+    padding: -5px;
+    text-align: center;
+}
+p.category {
+    color: white;
+    padding: -3px;
+}
+p#b {text-align: left;}
+p#c {text-align: center;}
+p#d {text-align: right;}
+
+/* LINKS */
+a.nochange:link { color: white; }
+a.nochange:visited { color: white; }
+a.nochange:hover { color: teal; }
+
+/* UL LI*/
+ul#c li {
+  list-style-type: none;
+  float: left;
+  text-align: center;
+  width: 50%;
+}
+ul#m li {
+  list-style-type: circle;
+  color: white;
+}
+ul#p li {
+  list-style-type: circle;
+  float: right;
+  color: white;
+
+}
+
+li.lista {
+	line-height:100%;
+}
+
+/* SPAN */
+a.hide span { display: none; }
+
+a.hide:hover span{ display: block; }
+
+/* TABLES */
+table {
+    padding-top: -75px;
+}
+table#work, th#work, td#work {
+    color: white;
+    width: 100%;
+    text-align: left;
+    padding: 3%;
+}
+
+/* FOOTER */
+footer {
+    opacity: 1;
+    position: fixed;
+    color: white;
+    left: 0;
+    bottom: -1%;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(lightseagreen, lightseagreen);
+}
+/**footer:hover {
+    opacity: 0;
+}**/
+
+/* Flaired edges, by Tomas Theunissen */
+hr.a {
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+hr.a:before {
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: white;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
+/* Gradient transparent, by Myself */
+hr.b {
+	border: 0px;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+}
+hr.c {
+	border: 0px;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+hr.d {
+	border: 0px;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+/* Custom Scroolbar, by myself */
+::-webkit-scrollbar {
+    width: 10px;
+    }
+::-webkit-scrollbar-track {
+    background: linear-gradient(lightseagreen, darkcyan, lightseagreen);
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(rgba(32, 178, 170, 0), aquamarine, rgba(0, 55, 55, 0));
+}
