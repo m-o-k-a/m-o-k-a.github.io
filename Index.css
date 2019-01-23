@@ -11,7 +11,7 @@ body {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(100%, #20B2AA), color-stop(100%, darkcyan)); /* Safari 4+, Chrome 2+ */
     background: -webkit-linear-gradient(lightseagreen, darkcyan); /* Safari 5.1+, Chrome 10+ */
     background: -o-linear-gradient(lightseagreen, darkcyan); /* Opera 11.10 */
-    background: linear-gradient(lightseagreen, darkcyan) fixed; */
+    background: linear-gradient(lightseagreen, darkcyan) fixed;
     background-color: lightseagreen;
     z-index: 1;
     font-family: 'Merienda', cursive;
