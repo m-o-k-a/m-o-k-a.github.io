@@ -1,0 +1,98 @@
+/* INHERITED FROM BASE TEMPLATE OF MOKA STUDY */
+body {
+    background: -moz-linear-gradient(darkgreen, lime); /* FF 3.6+ */
+    background: -ms-linear-gradient(darkgreen, lime); /* IE10 */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(darkgreen, lime), color-stop(100%, gold)); /* Safari 4+, Chrome 2+ */
+    background: -webkit-linear-gradient(darkgreen, lime); /* Safari 5.1+, Chrome 10+ */
+    background: -o-linear-gradient(darkgreen, lime); /* Opera 11.10 */
+    background: linear-gradient(darkgreen, lime) fixed;
+    background-color: darkgreen;
+    z-index: 1;
+    font-family: 'Merienda', cursive;
+    background-size: cover;
+    min-height: 100%;
+    overflow-x:hidden;
+}
+p.title {
+    color: white;
+    padding: -5px;
+    text-align: center;
+}
+a:visited {
+	color: white;
+}
+h1.title {
+    color: white;
+    padding: -10px;
+    text-align: center;
+}
+h2.category {
+    color: white;
+    padding: -25px;
+}
+h1.categories {
+	color: white;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.2);
+	margin: auto;
+  	width: 10%;
+	box-sizing: content-box; 
+	border-style: none none line none;
+}
+footer {
+	color: white;
+    opacity: 1;
+    position: fixed;
+    left: 0;
+    bottom: -1%;
+    width: 100%;
+    text-align: center;
+}
+
+hr.a {
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+hr.a:before {
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: white;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+hr.b {
+	border: 0px;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+}
+hr.c {
+	border: 0px;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(255, 215, 0, 0), rgba(255, 215, 0, 1), rgba(255, 215, 0, 0));
+}
+hr.d {
+	border: 0px;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+::-webkit-scrollbar {
+    width: 10px;
+    }
+::-webkit-scrollbar-track {
+    background: linear-gradient(crimson, gold, crimson);
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(rgba(32, 178, 170, 0), orangered, rgba(0, 55, 55, 0));
+}
+/*END OF INERITHED*/
+h1.name {
+	color: gold;
+	text-align: center;
+}

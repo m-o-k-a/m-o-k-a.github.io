@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Jsnake</title>
+    <link rel="stylesheet" type="text/css" href="Index.css">
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+    <script src="Index.js"></script>
+  </head>
+  <body>
+  <!--<body onload="GetList(); GetAll()">-->
+  	<br> <!-- Top: Tile-->
+  	<hr class="a">
+    <h1 class="title">Moka Study</h1>
+    <p class="title"> ~JSnake~</p><hr class="a">
+    <br>
+    <!-- DIV CANVAS -->
+    <div style="text-align:center" id="gameDiv">
+      <!-- start the canvas scene -->
+      <canvas id="gameCanvas" width="600" height="600"></canvas>
+      <!-- draw the canvas scene -->
+      <!-- ADD TO PUSH SCIPT ON HTML BECAUSE IT DIDN'T WORKED OTHERWISE ;-; -->
+      <script type="text/javascript">
+        //----------------------
+        /* SET UP THE CANVAS */
+        //----------------------
+        //CONSTANTS
+        const LEFT_KEY = 37;
+        const RIGHT_KEY = 39;
+        const UP_KEY = 38;
+        const DOWN_KEY = 40;
+        const CANVAS_BORDER_COLOUR = 'white';
+        const CANVAS_BACKGROUND_COLOUR = "rgba(255, 255, 255, 0.2)";
+
+        // Get the canvas element
+        var gameCanvas = document.getElementById("gameCanvas");
+
+        // draw the canvas
+        var ctx = gameCanvas.getContext("2d");
+        //  fill color
+        ctx.fillStyle = CANVAS_BACKGROUND_COLOUR;
+        //  border color
+        ctx.strokestyle = CANVAS_BORDER_COLOUR;
+        // Filled Rectangle
+        ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+        // Border
+        ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
+
+        //----------------------
+        /* SET UP THE SNAKE */
+        //----------------------
+        let dy = 0;
+        let dx = 0;
+        let score = 0;
+        let snake = [
+        {x: gameCanvas.width/2, y: gameCanvas.height/2},
+        {x: gameCanvas.width/2 - 15, y: gameCanvas.height/2},
+        {x: gameCanvas.width/2 - 30, y: gameCanvas.height/2},
+        {x: gameCanvas.width/2 - 45, y: gameCanvas.height/2},
+        {x: gameCanvas.width/2 - 60, y: gameCanvas.height/2},
+        ];
+        main();
+
+
+
+        //----------------------
+        /* FUNCTION PART */
+        //----------------------
+        //MAIN LOOP
+        function main() {
+          setTimeout(function onTick() {
+            //update
+            //clearCanvas();
+            changeDirection();
+            advanceSnake();
+            drawSnake();
+            // Call main again
+            main();
+            }, 100)
+        }
+
+        //about the canvas
+        function clearCanvas() {
+          ctx.fillStyle = CANVAS_BORDER_COLOUR;
+          ctx.strokeStyle = CANVAS_BACKGROUND_COLOUR;
+          ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+          ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
+        }
+
+        //about the snake
+        function drawSnake() {
+          snake.forEach(drawSnakeSquare);
+        }
+        function drawSnakeSquare(snakeSquare) {
+          // special skin for the head
+          if (snakeSquare == snake[0]) {
+            ctx.fillStyle = 'lime';
+            ctx.strokestyle = 'green';
+          }
+          else {
+            ctx.fillStyle = 'white';
+            ctx.strokestyle = 'green';
+          }
+          ctx.fillRect(snakeSquare.x, snakeSquare.y, 10, 10);
+          ctx.strokeRect(snakeSquare.x, snakeSquare.y, 10, 10);
+        }
+        function updateSnake() {
+          const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+          snake.unshift(head);
+          snake.pop();
+        }
+
+        //get the movement
+        function changeDirection(event) {
+          const keyPressed = event.keyCode;
+          if (keyPressed === LEFT_KEY) {dx = -10; dy = 0; }
+          if (keyPressed === RIGHT_KEY) {dx = +10; dy = 0; }
+          if (keyPressed === UP_KEY) {dx = 0; dy = +10; }
+          if (keyPressed === DOWN_KEY) {dx = 0; dy = -10; }
+        }
+
+      </script>
+    </div>
+    <!-- END OF DIV CANVAS -->
+    <footer>
+      <p class="title"><a class="nochange" href="https://m-o-k-a.github.io" target="_blank">{<i><u>Website done by Eddy Ikhlef - 2018-2019<i></u>}</a></p>
+    </footer>
+  </body>
+</html>
