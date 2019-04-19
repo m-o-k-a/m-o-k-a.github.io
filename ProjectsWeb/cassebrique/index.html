@@ -66,7 +66,7 @@
 	window.addEventListener("deviceorientation", handleOrientation, true);
 
 	//cheat autoplay
-	function keyUpHandler(e) { autoplay = !autoplay; }
+	function keyUpHandler(e) { if(e.keyCode == 39) { autoplay = !autoplay; } }
 
 	//handleOrientation
 	function handleOrientation(e) {
