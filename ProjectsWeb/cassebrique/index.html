@@ -26,6 +26,7 @@
 	var bricksCount = 0;
 	var isVictory = false;
 	var isGameOver = false;
+	var autoplay = true;
 		//of canvas
 	var x = canvas.width/2;
 	var y = canvas.height-30;
@@ -38,6 +39,7 @@
 	var paddleWidth = 75;
 	var paddleX = (canvas.width-paddleWidth)/2;
 		//of bricks
+	var possibility = Math.floor(Math.random() * 9)+1;
 	var brickRowCount = Math.floor(Math.random() * 15)+5;
 	var brickColumnCount = 9;
 	var brickWidth = 75;
@@ -52,15 +54,19 @@
     	bricks[col] = [];
     	for(var row = 0; row < brickRowCount; row++) {
     		var exist = Math.floor(Math.random() * 10)
-        	bricks[col][row] = { x: 0, y: 0, isBroke: (exist > 8) };
-        	if (exist <= 8) { bricksCount++; }
+        	bricks[col][row] = { x: 0, y: 0, isBroke: (exist > possibility) };
+        	if (exist <= possibility) { bricksCount++; }
     }}
     //difficulty calcul
 	var difficulty = Math.abs(Math.floor(Math.sqrt(Math.pow(dx, 2)+Math.pow(dy, 2)) + (dx/dy)/(bricksCount)));
 
 	//eventListener
 	document.addEventListener("mousemove", updatePaddle, false);
+	document.addEventListener("keyup", keyUpHandler, false);
 	window.addEventListener("deviceorientation", handleOrientation, true);
+
+	//cheat autoplay
+	function keyUpHandler(e) { autoplay = !autoplay; }
 
 	//handleOrientation
 	function handleOrientation(e) {
@@ -172,7 +178,7 @@
 	//throwStatut
 	function throwStatut() {
 		if (isVictory == false && isGameOver == false) {
-			if(score == brickRowCount*brickColumnCount) { isVictory = true; }
+			if(score == bricksCount) { isVictory = true; }
         	if (y > canvas.height+radius) { isGameOver = true; }
     }}
 
@@ -187,6 +193,7 @@
 		updateBall();
 		updateCollision();
 		//draw the element
+		if (autoplay == true) { paddleX = x-4; }
 		drawBall();
 		drawPaddle();
 		drawBricks();
