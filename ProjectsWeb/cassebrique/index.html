@@ -27,6 +27,7 @@
 	var isVictory = false;
 	var isGameOver = false;
 	var autoplay = false;
+	var trajectory = false;
 		//of canvas
 	var x = canvas.width/2;
 	var y = canvas.height-30;
@@ -63,10 +64,12 @@
 	//eventListener
 	document.addEventListener("mousemove", updatePaddle, false);
 	document.addEventListener("keyup", keyUpHandler, false);
+	document.addEventListener("keydown", keyLeftHandler, false);
 	window.addEventListener("deviceorientation", handleOrientation, true);
 
 	//cheat autoplay
 	function keyUpHandler(e) { if(e.keyCode == 38) { autoplay = !autoplay; } }
+	function keyLeftHandler(e) { if(e.keyCode == 37) { trajectory = !trajectory; } }
 
 	//handleOrientation
 	function handleOrientation(e) {
@@ -83,6 +86,21 @@
 		ctx.arc(x, y, radius, 0, Math.PI*2);
 		ctx.fillStyle = "aqua";
 		ctx.fill();
+		ctx.closePath();
+	}
+
+	//drawBallTrajectory
+	function drawBallTrajectory() {
+		//draw line
+		ctx.beginPath();
+		ctx.moveTo(x, y);
+  		if (dx > 0 && dy > 0) { ctx.lineTo(x*10,y*10); }
+  		if (dx > 0 && dy < 0) { ctx.lineTo(x*10,-y*10); }
+  		if (dx < 0 && dy > 0) { ctx.lineTo(-x*10,y*10); }
+  		if (dx < 0 && dy < 0) { ctx.lineTo(-x*10,-y*10); }
+  		ctx.setLineDash([5, 5]);
+  		ctx.fillStyle = "salmon";
+		ctx.stroke();
 		ctx.closePath();
 	}
 
@@ -193,7 +211,8 @@
 		updateBall();
 		updateCollision();
 		//draw the element
-		if (autoplay == true) { paddleX = x-4; }
+		if (autoplay == true) { paddleX = x-8; }
+		if (trajectory == true) { drawBallTrajectory(); }
 		drawBall();
 		drawPaddle();
 		drawBricks();
