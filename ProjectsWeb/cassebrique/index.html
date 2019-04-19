@@ -60,6 +60,15 @@
 
 	//eventListener
 	document.addEventListener("mousemove", updatePaddle, false);
+	window.addEventListener("deviceorientation", handleOrientation, true);
+
+	//handleOrientation
+	function handleOrientation(e) {
+		//get the x-axis value
+  		var gamma = event.gamma;
+  		if (gamma >  90) { paddleX += 8};
+  		if (gamme < 90) { paddleX -= 8};
+  	}
 
 	//drawBall
 	function drawBall() {
