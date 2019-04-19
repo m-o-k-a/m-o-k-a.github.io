@@ -28,6 +28,7 @@
 	var isGameOver = false;
 	var autoplay = false;
 	var trajectory = false;
+	var ballColor = "aqua" //if the ball is aquamarine, it mean a cheat was activated so highscore will not count
 		//of canvas
 	var x = canvas.width/2;
 	var y = canvas.height-30;
@@ -84,7 +85,7 @@
 		//draw circle
 		ctx.beginPath();
 		ctx.arc(x, y, radius, 0, Math.PI*2);
-		ctx.fillStyle = "aqua";
+		ctx.fillStyle = ballColor;
 		ctx.fill();
 		ctx.closePath();
 	}
@@ -211,8 +212,8 @@
 		updateBall();
 		updateCollision();
 		//draw the element
-		if (autoplay == true) { paddleX = x-8; }
-		if (trajectory == true) { drawBallTrajectory(); }
+		if (autoplay == true) { paddleX = x-8; ballColor = "aquamarine";}
+		if (trajectory == true) { drawBallTrajectory(); ballColor = "aquamarine";}
 		drawBall();
 		drawPaddle();
 		drawBricks();
