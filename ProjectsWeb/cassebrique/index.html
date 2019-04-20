@@ -73,7 +73,7 @@
 	//cheat autoplay
 	function keyUpHandler(e) { if (e.keyCode == "38") { autoplay = !autoplay; } }
 	function keyLeftHandler(e) { if (e.keyCode == "37") { trajectory = !trajectory; } }
-	function keyRightHandler(e) { if (e.keyCode == "39") { bigPaddle = !bigPaddle; } }
+	function keyRightHandler(e) { if (e.keyCode == "39") { dx += 2; dy += 2; } }
 
 	//handleOrientation
 	function handleOrientation(e) {
@@ -111,8 +111,7 @@
 	//drawPaddle
 	function drawPaddle() {
     	ctx.beginPath();
-    	if (bigPaddle == true) { ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight); }
-    	else { ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth*2, paddleHeight); }
+    	ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
     	ctx.fillStyle = "salmon";
     	ctx.fill();
     	ctx.closePath();
@@ -218,7 +217,6 @@
 		//draw the element
 		if (autoplay == true) { paddleX = x-8; ballColor = "aquamarine"; }
 		if (trajectory == true) { drawBallTrajectory(); ballColor = "aquamarine"; }
-		if (bigPaddle != true) { ballColor = "aquamarine"; }
 		drawBall();
 		drawPaddle();
 		drawBricks();
