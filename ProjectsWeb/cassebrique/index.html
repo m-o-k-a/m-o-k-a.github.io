@@ -217,7 +217,7 @@
 		updateBall();
 		updateCollision();
 		//draw the element
-		if (autoplay == true) { paddleX = x-8; ballColor = "aquamarine"; }
+		if (autoplay == true) { paddleX = x-paddleWidth/2; ballColor = "aquamarine"; }
 		if (trajectory == true) { drawBallTrajectory(); ballColor = "aquamarine"; }
 		drawBall();
 		drawPaddle();
