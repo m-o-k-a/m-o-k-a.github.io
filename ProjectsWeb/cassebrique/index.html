@@ -28,6 +28,7 @@
 	var isGameOver = false;
 	var autoplay = false;
 	var trajectory = false;
+	var bigPaddle = true;
 	var ballColor = "aqua" //if the ball is aquamarine, it mean a cheat was activated so highscore will not count
 		//of canvas
 	var x = canvas.width/2;
@@ -65,12 +66,14 @@
 	//eventListener
 	document.addEventListener("mousemove", updatePaddle, false);
 	document.addEventListener("keyup", keyUpHandler, false);
-	document.addEventListener("keydown", keyLeftHandler, false);
+	document.addEventListener("keyup", keyLeftHandler, false);
+	document.addEventListener("keyup", keyRightHandler, false);
 	window.addEventListener("deviceorientation", handleOrientation, true);
 
 	//cheat autoplay
-	function keyUpHandler(e) { if(e.keyCode == 38) { autoplay = !autoplay; } }
-	function keyLeftHandler(e) { if(e.keyCode == 37) { trajectory = !trajectory; } }
+	function keyUpHandler(e) { if (e.keyCode == "38") { autoplay = !autoplay; } }
+	function keyLeftHandler(e) { if (e.keyCode == "37") { trajectory = !trajectory; } }
+	function keyRightHandler(e) { if (e.keyCode == "39") { bigPaddle = !bigPaddle; } }
 
 	//handleOrientation
 	function handleOrientation(e) {
@@ -108,7 +111,8 @@
 	//drawPaddle
 	function drawPaddle() {
     	ctx.beginPath();
-    	ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+    	if (bigPaddle == true) { ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight); }
+    	else { ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth*2, paddleHeight); }
     	ctx.fillStyle = "salmon";
     	ctx.fill();
     	ctx.closePath();
@@ -212,8 +216,9 @@
 		updateBall();
 		updateCollision();
 		//draw the element
-		if (autoplay == true) { paddleX = x-8; ballColor = "aquamarine";}
-		if (trajectory == true) { drawBallTrajectory(); ballColor = "aquamarine";}
+		if (autoplay == true) { paddleX = x-8; ballColor = "aquamarine"; }
+		if (trajectory == true) { drawBallTrajectory(); ballColor = "aquamarine"; }
+		if (bigPaddle != true) { ballColor = "aquamarine"; }
 		drawBall();
 		drawPaddle();
 		drawBricks();
