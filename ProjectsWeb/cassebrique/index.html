@@ -68,12 +68,14 @@
 	document.addEventListener("keyup", keyUpHandler, false);
 	document.addEventListener("keyup", keyLeftHandler, false);
 	document.addEventListener("keyup", keyRightHandler, false);
+	document.addEventListener("keyup", keyDownHandler, false);
 	window.addEventListener("deviceorientation", handleOrientation, true);
 
 	//cheat autoplay
 	function keyUpHandler(e) { if (e.keyCode == "38") { autoplay = !autoplay; } }
-	function keyLeftHandler(e) { if (e.keyCode == "37") { trajectory = !trajectory; } }
-	function keyRightHandler(e) { if (e.keyCode == "39") { dx += 2; dy += 2; } }
+	function keyDownHandler(e) { if (e.keyCode == "40") { trajectory = !trajectory; } }
+	function keyRightHandler(e) { if (e.keyCode == "39") { dx *= 2; dy *= 2; ballColor = "aquamarine";} }
+	function keyLeftHandler(e) { if (e.keyCode == "37") { dx *= 0.5; dy *= 0.5; ballColor = "aquamarine";} }
 
 	//handleOrientation
 	function handleOrientation(e) {
@@ -231,8 +233,6 @@
 </script>
 <!-- create the restart button -->
 <br><button onclick="document.location.reload(); clearInterval(interval);">PLAY AGAIN</button><br>
-<!-- create the audio -->
-<br><audio controls><source src="ost.mp3" type="audio/mpeg"></audio><br>
 <br><p>~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</p>
 <!-- start highscore table -->
 <h1><u>HIGHSCORE</u></h1>
