@@ -11,7 +11,7 @@
 </head>
 <body>
 <div id=but style="width: 320px; border: 5px solid lime; border-style: double; margin: auto; width: 600px; background-color: rgba(255, 255, 255, 0.4);">
-<p>JS CONWAY'S GAME OF LIFE - Eddy Ikhlef - V1.1</p>
+<p>JS CONWAY'S GAME OF LIFE - Eddy Ikhlef - V1.2</p>
 </div>
 <canvas id="myCanvas" width="600" height="600"></canvas>
 
@@ -114,9 +114,9 @@
 		thisCellNeigh = 0;
 		for (var c = col-1; c <= col+1; c++) {
 			for (var r = row-1; r <= row+1; r++) {
-				if (c >= 0 && c < cellColumns && r >= 0 && r < cellRows) {
-					if(cells[c][r].state == true) { thisCellNeigh++; }
-	}}}}
+					if (c >= 0 && c < cellColumns && r >= 0 && r < cellRows) {
+						if(cells[c][r].state == true) { thisCellNeigh++;
+	}}}}}
 
 	//RANDOMFILL FUNCTION: CREATE A BEGINNING SEED
 	function randomFill() {
