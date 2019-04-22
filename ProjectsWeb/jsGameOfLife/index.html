@@ -11,7 +11,7 @@
 </head>
 <body>
 <div id=but style="width: 320px; border: 5px solid lime; border-style: double; margin: auto; width: 600px; background-color: rgba(255, 255, 255, 0.4);">
-<p>JS CONWAY'S GAME OF LIFE - Eddy Ikhlef - V1.0</p>
+<p>JS CONWAY'S GAME OF LIFE - Eddy Ikhlef - V1.1</p>
 </div>
 <canvas id="myCanvas" width="600" height="600"></canvas>
 
@@ -21,8 +21,10 @@
 	var ctx = canvas.getContext("2d");
 	var ctxWidth = canvas.width;
 	var ctxHeight = canvas.height;
-	var updateSpeed = 1000;
+	var updateSpeed = 10;
 	var action = 0; //0 = draw, 1= start
+	var count = 0;
+	var tick = 0;
 
 	//VARIABLES RELATED TO CELLS
 	var cellColumns = 50;
@@ -54,12 +56,31 @@
 	function fill() {
 		for (var col = 0; col < cellColumns; col++) {
 			for (var row = 0; row < cellRows; row++) {
+				//draw grid
+				ctx.beginPath();
+    			ctx.rect(col*cellWidth, row*cellHeight, cellWidth, cellHeight);
+    			ctx.lineWidth = "1";
+    			ctx.strokeStyle = "white";
+				ctx.stroke();
+				ctx.closePath();
+
 				if (cells[col][row].state == true) {
 					ctx.beginPath();
     				ctx.rect(col*cellWidth, row*cellHeight, cellWidth, cellHeight);
     				ctx.fillStyle = cellColor;
+    				ctx.lineWidth = "1";
+    				ctx.strokeStyle = "white";
 					ctx.fill();
+					ctx.stroke();
 					ctx.closePath();
+	}}}}
+
+	//COUNTCELL FUNCTION: CHANGE THE AMOUNT OF LIVING CELL ON THE ACTUAL GENERATION (DATA)
+	function countCell() {
+		count = 0;
+		for (var col = 0; col < cellColumns; col++) {
+			for (var row = 0; row < cellRows; row++) {
+				if (cells[col][row].state) { count++; 
 	}}}}
 
 	//UPDATECELLS FUNCTION: SEE IF IT IS ALIVE OR NOT AND UPDATE
@@ -122,17 +143,21 @@
 	}
 
 	//MAIN LOOP
+	function ticks(){ 
+		tick++; 
+		if (tick >= updateSpeed) { main(); tick = 0;
+	}}setInterval(ticks, 60);
+	 
 	function main() {
 		if (action == 1) {
 			//clear the canvas
-			document.getElementById("gen").innerHTML = "Generation N° "+generation;
+			document.getElementById("gen").innerHTML = "Generation N° "+generation+ " - Nb of living cells: "+count+"/"+cellColumns*cellRows;;
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			updateCells();
 			fill();
+			countCell();
 			generation++;
 	}}
-	setInterval(main, updateSpeed);
-
 </script>
 <div id=but style="width: 320px; border: 5px solid aqua; border-style: double; margin: auto; width: 500px; background-color: rgba(255, 255, 255, 0.6);">
 	<button onclick="randomFill(); generation = 0;">RNG G</button>
@@ -141,12 +166,20 @@
 	<button onclick="action = 0;">PAUSE</button>
 	<p id="gen"><i>Generation N° 0</i></p>
 </div>
+<div id=but style="width: 320px; border: 5px solid lime; border-style: double; margin: auto; width: 500px; background-color: rgba(255, 255, 255, 0.6);">
+	<p>Manually add/remove a cell (column, row)</p>
+	<tr>
+		<td><INPUT type="text" name="Speed" value="0" size="2" id="formX"></INPUT></td>
+		<td><INPUT type="text" name="Speed" value="0" size="2" id="formY"></INPUT></td>
+	</tr>
+	<button onclick='ctx.clearRect(0, 0, canvas.width, canvas.height); change(document.getElementById("formX").value,document.getElementById("formY").value); fill();'>add</button>
+</div>
 <div id="parameters" style="width: 320px; border: 5px solid aqua; border-style: double; margin: auto; width: 600px; background-color: rgba(255, 255, 255, 0.6);">
 	<h4>SELECT VALUE FOR THE GRID</h4>
 	<p><i>square size</i></p>
 	<INPUT type="text" name="Width Number" value="50" size="5" id="formSize"></INPUT>
 	<p><i>ticks</i></p>
-	<INPUT type="text" name="Speed" value="1000" size="5" id="formSpeed"></INPUT>
+	<INPUT type="text" name="Speed" value="10" size="5" id="formSpeed"></INPUT>
 	<p><i>random generation seed</i></p>
 	<INPUT type="text" name="Speed" value="10" size="5" id="formSeed"></INPUT>
 	<p><i>Cells Color (RGB)</i></p>
