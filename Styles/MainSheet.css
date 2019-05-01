@@ -147,23 +147,10 @@ hr.sub {
 #particles-js2 {
   position: absolute;
   width: 100%;
-  height: 500%;
+  height: 250%;
   background-image: url("");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 100% 500%;
+  background-position: 100% 250%; /*value to change each time */
   z-index: -1;
-}
-
-.text {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%,-50%);
-    color: #fff;
-    max-width: 90%;
-    padding: 2em 3em;
-    background: rgba(0, 0, 0, 0.4);
-    text-shadow: 0px 0px 2px #131415;
-    font-family: 'Open Sans', sans-serif;
 }
