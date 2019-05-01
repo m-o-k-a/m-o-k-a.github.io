@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS Game Of Life</title>
+    <style>
+    	body { background: url(bkg11.jpg) no-repeat center center; }
+    	* { padding: 0; margin: 0; text-align: center; }
+    	canvas { display: block; margin: 0 auto; background: url(bkg1.jpg) no-repeat center center; }
+    </style>
+</head>
+<body>
+<div id=but style="width: 320px; border: 5px solid lime; border-style: double; margin: auto; width: 600px; background-color: rgba(255, 255, 255, 0.4);">
+<p>JS CONWAY'S GAME OF LIFE - Eddy Ikhlef - V1.2</p>
+</div>
+<canvas id="myCanvas" width="600" height="600"></canvas>
+
+<script>
+	//VARIABLES RELATED TO CANVAS
+	var canvas = document.getElementById("myCanvas");
+	var ctx = canvas.getContext("2d");
+	var ctxWidth = canvas.width;
+	var ctxHeight = canvas.height;
+	var updateSpeed = 10;
+	var action = 0; //0 = draw, 1= start
+	var count = 0;
+	var tick = 0;
+
+	//VARIABLES RELATED TO CELLS
+	var cellColumns = 50;
+	var cellRows = 50;
+	var cellWidth = Math.floor(ctxWidth/cellRows);
+	var cellHeight = Math.floor(ctxHeight/cellColumns);
+	var thisCellNeigh = 0;
+	var generation = 0;
+	var seed = 10;
+	var cellColor = "rgb(0,255,255)";
+
+	//INITIALISE THE CELLS TABS
+	var cells = [];
+	initializeCells();
+	//INITIALIZE FUNCTION : UWSED WHEN USER CHANGE PROPERTIES AND ON STARTUP
+	function initializeCells() {
+		for (var col = 0; col < cellColumns; col++) {
+			cells[col] = [];
+			for (var row = 0; row < cellRows; row++) {
+				cells[col][row] = {x: cellWidth*row, y: cellHeight*col, state: false};
+	}}}
+
+	//CHANGE STATE
+	function change(col, row) {
+		cells[col][row].state = !(cells[col][row].state);
+	}
+
+	//FILL FUNCTION: DRAW THE CELLS
+	function fill() {
+		for (var col = 0; col < cellColumns; col++) {
+			for (var row = 0; row < cellRows; row++) {
+				//draw grid
+				ctx.beginPath();
+    			ctx.rect(col*cellWidth, row*cellHeight, cellWidth, cellHeight);
+    			ctx.lineWidth = "1";
+    			ctx.strokeStyle = "white";
+				ctx.stroke();
+				ctx.closePath();
+
+				if (cells[col][row].state == true) {
+					ctx.beginPath();
+    				ctx.rect(col*cellWidth, row*cellHeight, cellWidth, cellHeight);
+    				ctx.fillStyle = cellColor;
+    				ctx.lineWidth = "1";
+    				ctx.strokeStyle = "white";
+					ctx.fill();
+					ctx.stroke();
+					ctx.closePath();
+	}}}}
+
+	//COUNTCELL FUNCTION: CHANGE THE AMOUNT OF LIVING CELL ON THE ACTUAL GENERATION (DATA)
+	function countCell() {
+		count = 0;
+		for (var col = 0; col < cellColumns; col++) {
+			for (var row = 0; row < cellRows; row++) {
+				if (cells[col][row].state) { count++; 
+	}}}}
+
+	//UPDATECELLS FUNCTION: SEE IF IT IS ALIVE OR NOT AND UPDATE
+	function updateCells() {
+		for (var col = 0; col < cellColumns; col++) {
+			for (var row = 0; row < cellRows; row++) {
+				//alert("TRY FOR "+col+" "+row);
+				getNeigh(col, row);
+				//cells[col][row].state = !cells[col][row].state;
+				//update the cell if it's dead
+				if (thisCellNeigh == 3 && cells[col][row].state == false) { cells[col][row].state = true; }
+				//update the cell if it's alive
+				else if (thisCellNeigh >= 2 && thisCellNeigh <= 3 && cells[col][row].state == true) { cells[col][row].state = true; }
+				//updateif the cell die
+				else { cells[col][row].state = false; }
+	}}}
+
+	//CLEARCELLS FUNCTION: RESTART
+	function clearCells() {
+		for (var col = 0; col < cellColumns; col++) {
+			for (var row = 0; row < cellRows; row++) {
+				cells[col][row].state = false;
+		}}
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		updateCells();
+		fill();
+	}
+
+	//GETNEIGH FUNCTION: RETURN THE NUMBER OF NEIGHBOOR OF THE CELL
+	function getNeigh(col, row) {
+		thisCellNeigh = 0;
+		for (var c = col-1; c <= col+1; c++) {
+			for (var r = row-1; r <= row+1; r++) {
+					if (c >= 0 && c < cellColumns && r >= 0 && r < cellRows) {
+						if(cells[c][r].state == true) { thisCellNeigh++;
+	}}}}}
+
+	//RANDOMFILL FUNCTION: CREATE A BEGINNING SEED
+	function randomFill() {
+		clearCells();
+		for (var col = 0; col < cellColumns; col++) {
+			for (var row = 0; row < cellRows; row++) {
+				if (Math.floor(Math.random()*seed) > Math.floor(Math.random()*seed+Math.random()*10)-Math.random()*5) { cells[col][row].state = true;
+		}}}
+		fill();
+	}
+
+	//UPDATEPARAM FUNCTION : TO LEAVE USER HAVE MORE PERSONALISATION
+	function updateParam(){
+		seed = document.getElementById("formSeed").value;
+		cellColumns = document.getElementById("formSize").value;
+		cellRows = document.getElementById("formSize").value;
+		updateSpeed = document.getElementById("formSpeed").value;
+		cellWidth = Math.floor(ctxWidth/cellRows);
+		cellHeight = Math.floor(ctxHeight/cellColumns);
+		initializeCells();
+		cellColor = "rgb("+(document.getElementById("formR").value)%256+","+(document.getElementById("formG").value)%256+",0"+(document.getElementById("formB").value)%256+")";
+		//ctx.clearRect(0, 0, canvas.width, canvas.height);
+		fill();
+	}
+
+	//MAIN LOOP
+	function ticks(){ 
+		tick++; 
+		if (tick >= updateSpeed) { main(); tick = 0;
+	}}setInterval(ticks, 60);
+	 
+	function main() {
+		if (action == 1) {
+			//clear the canvas
+			document.getElementById("gen").innerHTML = "Generation N° "+generation+ " - Nb of living cells: "+count+"/"+cellColumns*cellRows;;
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			updateCells();
+			fill();
+			countCell();
+			generation++;
+	}}
+</script>
+<div id=but style="width: 320px; border: 5px solid aqua; border-style: double; margin: auto; width: 500px; background-color: rgba(255, 255, 255, 0.6);">
+	<button onclick="randomFill(); generation = 0;">RNG G</button>
+	<button onclick="action = 1;">START</button>
+	<button onclick="clearCells(); generation = 0;">CLEAN</button><br> 
+	<button onclick="action = 0;">PAUSE</button>
+	<p id="gen"><i>Generation N° 0</i></p>
+</div>
+<div id=but style="width: 320px; border: 5px solid lime; border-style: double; margin: auto; width: 500px; background-color: rgba(255, 255, 255, 0.6);">
+	<p>Manually add/remove a cell (column, row)</p>
+	<tr>
+		<td><INPUT type="text" name="Speed" value="0" size="2" id="formX"></INPUT></td>
+		<td><INPUT type="text" name="Speed" value="0" size="2" id="formY"></INPUT></td>
+	</tr>
+	<button onclick='ctx.clearRect(0, 0, canvas.width, canvas.height); change(document.getElementById("formX").value,document.getElementById("formY").value); fill();'>add</button>
+</div>
+<div id="parameters" style="width: 320px; border: 5px solid aqua; border-style: double; margin: auto; width: 600px; background-color: rgba(255, 255, 255, 0.6);">
+	<h4>SELECT VALUE FOR THE GRID</h4>
+	<p><i>square size</i></p>
+	<INPUT type="text" name="Width Number" value="50" size="5" id="formSize"></INPUT>
+	<p><i>ticks</i></p>
+	<INPUT type="text" name="Speed" value="10" size="5" id="formSpeed"></INPUT>
+	<p><i>random generation seed</i></p>
+	<INPUT type="text" name="Speed" value="10" size="5" id="formSeed"></INPUT>
+	<p><i>Cells Color (RGB)</i></p>
+	<tr>
+		<td><INPUT type="text" name="Speed" value="0" size="3" id="formR"></INPUT></td>
+		<td><INPUT type="text" name="Speed" value="255" size="3" id="formG"></INPUT></td>
+		<td><INPUT type="text" name="Speed" value="255" size="3" id="formB"></INPUT></td>
+	</tr>
+	<br>
+	<br>
+	<button onclick="updateParam(); generation = 0;">UPDATE</button>
+</div>
+</body>
+</html>

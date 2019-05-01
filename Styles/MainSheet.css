@@ -1,0 +1,118 @@
+/* 
+    MainSheet.css
+    Linked to: index.html;
+*/
+
+/* CSS - ELEMENTS */
+body {
+    /* background properties of body */
+    background-image: url("../Img/bkg0.jpg");
+    background-position: top;
+    background-repeat: repeat;
+    background-size: cover;
+
+    /* font properties of body */
+    font-family: 'Major Mono Display', monospace;
+    min-height: 100%;
+    font-size: 15px;
+    text-shadow: 0px 0px 7px black;
+}
+ul {
+    list-style: circle;
+    color: white;
+}
+footer {
+    /* footer properties */
+    opacity: 1;
+    position: fixed;
+    color: white;
+    left: 0;
+    bottom: -1%;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(rgba(0,255,255,0), rgba(0,255,255,0.5));
+}
+button {
+    background-image: linear-gradient(to right, rgba(255,255,255,0.5), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0));
+}
+
+/* CSS - CLASS */
+.textTitle {
+    /* text properties for title */
+    color: white;
+    padding: -10px;
+    text-align: center;
+}
+.textLeft {
+    /* text properties for title */
+    color: white;
+    padding: -10px;
+    text-align: left;
+}
+.boxMain {
+    /* box properties for parents boxes */
+    display: block;
+    border-color: white;
+    border-style: hidden dashed dashed dashed;
+    padding: 4px;
+    margin: 4px;
+    background-image: linear-gradient(rgba(0,255,255,0), rgba(0,255,255,0.5));
+}
+.textHiddenHalf {
+    color: white;
+    text-align: center;
+    opacity: 0.5;
+}
+input {
+    opacity: 0.5;
+}
+
+/* CSS - ID */
+
+/* CSS - CUSTOM */
+::-webkit-scrollbar {
+    display: none;
+}
+hr.main {
+    border-color: rgba(0,0,0,0);
+    border-top: 2px dashed white;
+}
+hr.sub {
+    border-color: rgba(0,0,0,0);
+    border-top: 2px dotted white;
+}
+
+/* CSS - ANIMATION */
+.buttonCollapsible {
+    /* background/border properties for the expandable box */
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0);
+    min-height: 100%;
+    width: 100%;
+    /* text properties for the expandable box */
+    font-family: 'Major Mono Display', monospace;
+    text-shadow: 0px 0px 7px black;
+    text-align: center;
+}
+.button {
+    /* background/border properties for the button */
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0);
+    opacity: 1;
+    min-height: 100%;
+    width: 100%;
+    /* text properties for the button */
+    font-family: 'Major Mono Display', monospace;
+    color: white;
+    text-shadow: 0px 0px 7px black;
+    text-align: left;
+    background-image: linear-gradient(to right, rgba(0,255,0,0.5), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0));
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: rgba(255,255,255,0);
+}

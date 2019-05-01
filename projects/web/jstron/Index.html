@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JSoloTron</title>
+    <link rel="stylesheet" type="text/css" href="Index.css">
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+    <script src="Index.js"></script>
+  </head>
+  <body>
+  <!--<body onload="GetList(); GetAll()">-->
+  	<br> <!-- Top: Tile-->
+  	<hr class="a">
+    <h1 class="title">Moka Study</h1>
+    <p class="title"> ~JSoloTron~</p><hr class="a">
+    <!-- DIV CANVAS -->
+    <div style="text-align:center" id="gameDiv">
+      <p id="score" style="color: white;"> time : 0 </p>
+      <p id="over" style="color: white;"> !SURVIVE!</p>
+      <canvas id="gameCanvas" width= 600 height="600"></canvas>
+      <!-- /*JAVASCRIPT SOLO TRON - SURVIVE */ -->
+      <link rel="stylesheet" type="text/css" href="Index.css">
+      <script>
+      //CONST
+      const CANVAS_BORDER_COLOUR = "black";
+      const CANVAS_BACKGROUND_COLOUR = "rgba(0, 0, 0, 0)";
+      const SNAKE_COLOUR = "darkblue";
+      const SNAKE_COLOUR2 = "#FF0080"; //fuschia
+      const SNAKE_BORDER_COLOUR = "darkblue";
+
+      //CONST - KEY
+      const LEFT_KEY = 37;
+      const RIGHT_KEY = 39;
+      const UP_KEY = 38;
+      const DOWN_KEY = 40;
+
+      //VAR
+      let snake = [ {x: 290, y: 290}];
+      let score = 0;
+      let changingDirection = false;
+      var myArray = [-10, 10];    
+      let dx = myArray[Math.floor(Math.random() * myArray.length)];
+      let dy = myArray[Math.floor(Math.random() * myArray.length)];
+      //check no diagonal move
+      if (dx == dy) {dy = 0;}
+      if (dx == -dy) {dx = 0;}
+
+      //BEGIN CANVAS SCENE
+      const gameCanvas = document.getElementById("gameCanvas");
+      const ctx = gameCanvas.getContext("2d");
+
+      //MAIN
+      main();
+      document.addEventListener("keydown", changeDirection);
+      function main() {
+        //continue
+        if (isOver()) {document.getElementById('over').innerHTML = "GAME OVER"; return;}
+        setTimeout(function onTick() {
+          //update canvas
+          ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
+          changingDirection = false;
+          update();
+          drawSnake();
+          main();
+        }, 60)
+      }
+
+      //FUNCTIONS
+      /*
+      // UPDATE: update new position and cube of the player, and change the color, update score
+      */
+      function update() {
+        const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+        snake.unshift(head);
+        score++;
+        document.getElementById('score').innerHTML = "time : " + score;
+      }
+
+      /*
+      // isOver : return game over and freeze the game if the player is in colission with hitself or a wall
+      */
+      function isOver() {
+        for (let i = 4; i < snake.length; i++) { if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true }
+        const hitLeftWall = snake[0].x < 0;
+        const hitRightWall = snake[0].x > gameCanvas.width - 10;
+        const hitToptWall = snake[0].y < 0;
+        const hitBottomWall = snake[0].y > gameCanvas.height - 10;
+        return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
+      }
+
+      /*
+      // drawSnake : call for each part of the player the draw function
+      */
+      function drawSnake() {
+        snake.forEach(drawSnakePart)
+      }
+
+      /*
+      // drawSnakePart : change the color of the cube and draw it
+      */
+      function drawSnakePart(snakePart) {
+        var myArray = [SNAKE_COLOUR, SNAKE_COLOUR2];    
+        ctx.fillStyle = myArray[Math.floor(Math.random() * myArray.length)];
+        ctx.strokestyle = SNAKE_BORDER_COLOUR;
+        ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
+        ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
+      }
+
+      /*
+      // changeDirection: check whenever a key is pressed to change the dx and dy values
+      */
+      function changeDirection(event) {
+        if (changingDirection) return;
+        changingDirection = true;
+        const keyPressed = event.keyCode;
+        const goingUp = dy === -10;
+        const goingDown = dy === 10;
+        const goingRight = dx === 10;
+        const goingLeft = dx === -10;
+        if (keyPressed === LEFT_KEY && !goingRight) { dx = -10;dy = 0; }
+        if (keyPressed === UP_KEY && !goingDown) { dx = 0; dy = -10; }
+        if (keyPressed === RIGHT_KEY && !goingLeft) { dx = 10; dy = 0;}
+        if (keyPressed === DOWN_KEY && !goingUp) { dx = 0; dy = 10;}
+      }
+  </script>
+  <link rel="stylesheet" type="text/css" href="Index.css">
+  </div>
+  <!-- END OF DIV CANVAS -->
+  </body>
+  <footer>
+    <p class="title"><a class="nochange" href="https://m-o-k-a.github.io" target="_blank">{<i><u>Website done by Eddy Ikhlef - 2018-2019<i></u>}</a></p>
+  </footer>
+  <link rel="stylesheet" type="text/css" href="Index.css">
+</html>
