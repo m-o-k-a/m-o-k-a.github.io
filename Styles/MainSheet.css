@@ -35,6 +35,9 @@ footer {
 button {
     background-image: linear-gradient(to right, rgba(255,255,255,0.5), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0));
 }
+a {
+    text-decoration: none;
+}
 
 /* CSS - CLASS */
 .textTitle {
@@ -48,6 +51,13 @@ button {
     color: white;
     padding: -10px;
     text-align: left;
+}
+.textLeftCat {
+    /* text properties for categories */
+    color: white;
+    padding: -10px;
+    text-align: left;
+    background-image: linear-gradient(to right, rgba(0,255,0,0.5), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0));
 }
 .boxMain {
     /* box properties for parents boxes */

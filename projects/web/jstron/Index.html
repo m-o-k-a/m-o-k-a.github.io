@@ -2,21 +2,27 @@
 <html lang="en">
   <head>
     <title>JSoloTron</title>
-    <link rel="stylesheet" type="text/css" href="Index.css">
     <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
     <script src="Index.js"></script>
+    <style>
+      body { background: url(bkg11.jpg) no-repeat center center; }
+      * { padding: 0; margin: 0; text-align: center; }
+      canvas { display: block; margin: 0 auto; background: url(bkg1.jpg) no-repeat center center; }
+      p { size: 24px; }
+      </style>
   </head>
   <body>
   <!--<body onload="GetList(); GetAll()">-->
-  	<br> <!-- Top: Tile-->
-  	<hr class="a">
-    <h1 class="title">Moka Study</h1>
-    <p class="title"> ~JSoloTron~</p><hr class="a">
+    <div id=but style="width: 320px; border: 5px solid darkblue; border-style: double; margin: auto; width: 600px; background-color: rgba(255, 255, 255, 0.4);">
+      <p>~JSOLOTRON~ EDDY IKHLEF</p>
+    </div>
+    <div id=but style="width: 320px; border: 5px solid purple; border-style: double; margin: auto; width: 600px; background-color: rgba(255, 255, 255, 0.4);">
+      <p id="score" style="color: darkblue;"> time : 0 </p>
+      <p id="over" style="color: purple;"> !SURVIVE!</p>
+    </div>
     <!-- DIV CANVAS -->
     <div style="text-align:center" id="gameDiv">
-      <p id="score" style="color: white;"> time : 0 </p>
-      <p id="over" style="color: white;"> !SURVIVE!</p>
       <canvas id="gameCanvas" width= 600 height="600"></canvas>
       <!-- /*JAVASCRIPT SOLO TRON - SURVIVE */ -->
       <link rel="stylesheet" type="text/css" href="Index.css">
@@ -127,8 +133,5 @@
   </div>
   <!-- END OF DIV CANVAS -->
   </body>
-  <footer>
-    <p class="title"><a class="nochange" href="https://m-o-k-a.github.io" target="_blank">{<i><u>Website done by Eddy Ikhlef - 2018-2019<i></u>}</a></p>
-  </footer>
   <link rel="stylesheet" type="text/css" href="Index.css">
 </html>
