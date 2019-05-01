@@ -6,8 +6,7 @@
 /* CSS - ELEMENTS */
 body {
     /* background properties of body */
-    /*background-image: url("../Img/bkg0.jpg");*/
-    background-color: #000018;
+    background-image: url("../Img/bkg0.jpg");
     background-position: top;
     background-repeat: repeat;
     background-size: cover;
@@ -126,40 +125,4 @@ hr.sub {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   background-color: rgba(255,255,255,0);
-}
-
-/* CSS - PARTICLES.JS */
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 10%;
-  background-image: url("");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 100% 300%;
-  z-index: -1;
-}
-
-#particles-js2 {
-  position: absolute;
-  width: 100%;
-  height: 300%;
-  background-image: url("");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 100% 300%;
-  z-index: -1;
-}
-
-.text {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%,-50%);
-    color: #fff;
-    max-width: 90%;
-    padding: 2em 3em;
-    background: rgba(0, 0, 0, 0.4);
-    text-shadow: 0px 0px 2px #131415;
-    font-family: 'Open Sans', sans-serif;
 }
