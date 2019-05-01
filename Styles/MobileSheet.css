@@ -14,7 +14,7 @@ body {
 
     /* font properties of body */
     font-family: 'Major Mono Display', monospace;
-    font-size: 15px;
+    font-size: 30px;
     text-shadow: 0px 0px 7px black;
 }
 ul {
@@ -124,14 +124,6 @@ hr.sub {
     background-image: linear-gradient(to right, rgba(0,255,0,0.5), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0));
 }
 
-.content {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: rgba(255,255,255,0);
-}
-
 /* CSS - PARTICLES.JS */
 #particles-js {
   position: absolute;
@@ -153,17 +145,4 @@ hr.sub {
   background-size: cover;
   background-position: 100% 500%;
   z-index: -1;
-}
-
-.text {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%,-50%);
-    color: #fff;
-    max-width: 90%;
-    padding: 2em 3em;
-    background: rgba(0, 0, 0, 0.4);
-    text-shadow: 0px 0px 2px #131415;
-    font-family: 'Open Sans', sans-serif;
 }
