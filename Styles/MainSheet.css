@@ -10,7 +10,7 @@ body {
     background-color: #000018;
     background-position: top;
     background-repeat: repeat;
-    background-size: cover;
+    background-size: auto;
 
     /* font properties of body */
     font-family: 'Major Mono Display', monospace;
