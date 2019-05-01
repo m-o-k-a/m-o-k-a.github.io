@@ -39,6 +39,9 @@ button {
 a {
     text-decoration: none;
 }
+input {
+    opacity: 0.5;
+}
 
 /* CSS - CLASS */
 .textTitle {
@@ -74,8 +77,11 @@ a {
     text-align: center;
     opacity: 0.5;
 }
-input {
-    opacity: 0.5;
+.secret {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    color: white;
 }
 
 /* CSS - ID */
