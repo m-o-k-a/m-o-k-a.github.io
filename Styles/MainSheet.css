@@ -14,7 +14,6 @@ body {
 
     /* font properties of body */
     font-family: 'Major Mono Display', monospace;
-    min-height: 100%;
     font-size: 15px;
     text-shadow: 0px 0px 7px black;
 }
