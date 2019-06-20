@@ -135,7 +135,7 @@ hr.sub {
   border-style: none none none none;
   margin: left; 
   background-color: rgba(255,255,255,0);
-  font-size: 5px;
+  font-size: 20px;
 }
 #contentBox {
   /* content flexbox */
