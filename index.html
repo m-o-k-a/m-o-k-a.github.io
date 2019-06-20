@@ -31,36 +31,417 @@
           <p class="textLeft" style="color: white; font-size: 13px;">obtained a scientist baccalaureate diploma, "pretty good" awarded</p>
         </ul>
       </div>
-      <button class="buttonCollapsible"><p class="textLeft" style="color: lime;"><b>〈 skills 〉</b></p></button>
-      <div class="content">
-        <ul>
-          <li><p class="textLeft" style="color: lime;">［programming languages]</p></li>
-          <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
-            <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 70%;"><i>front-end</i></p>
-          </div>
-          <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
-            <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 10%; white-space: nowrap;"><i>back-end</i></p>
-          </div>
-          <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
-            <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 90%;"><i>python/django</i></p>
-          </div>
-          <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
-            <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 20%;"><i>ruby/onrails</i></p>
-          </div>
-          <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
-            <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 25%;"><i>java</i></p>
-          </div>
-          <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
-            <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 40%;"><i>c</i></p>
-          </div>
-          <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
-            <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 20%;"><i>c#</i></p>
-          </div>
-          <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
-            <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 15%;"><i>c++</i></p>
-          </div>
-        </ul>
-        </div>
+      <button class="buttonCollapsible"><p class="textLeft" style="color: lime;"><b>〈 skills 〉</b></p></button> <!-- 6 PER ROW -->
+      <div class="content" id="mainBox">
+        <div id="contentBox">
+          <ul>
+            <li><p class="textLeft" style="color: lime;">［programming languages]</p></li>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 70%;"><i>front-end</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 10%; white-space: nowrap;"><i>back-end</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 90%;"><i>python/django</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 20%;"><i>ruby/onrails</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 25%;"><i>java</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 40%;"><i>c</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 20%;"><i>c#</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 15%;"><i>c++</i></p>
+            </div>
+          </ul>
+      </div>
+        <div id="contentBox"> 
+          <ul>
+            <li style="color: rgba(0,0,0,0)"><p class="textLeft" style="color: rgba(0,0,0,0);">［programming languages]</p></li> <!-- to keep the same width -->
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+          </ul>
+      </div>
+        <div id="contentBox"> 
+          <ul>
+            <li style="color: rgba(0,0,0,0)"><p class="textLeft" style="color: rgba(0,0,0,0);">［programming languages]</p></li> <!-- to keep the same width -->
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+          </ul>
+      </div>
+        <div id="contentBox"> 
+          <ul>
+            <li style="color: rgba(0,0,0,0)"><p class="textLeft" style="color: rgba(0,0,0,0);">［programming languages]</p></li> <!-- to keep the same width -->
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+          </ul>
+      </div>
+        <div id="contentBox"> 
+          <ul>
+            <li style="color: rgba(0,0,0,0)"><p class="textLeft" style="color: rgba(0,0,0,0);">［programming languages]</p></li> <!-- to keep the same width -->
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+          </ul>
+      </div>
+        <div id="contentBox"> 
+          <ul>
+            <li style="color: rgba(0,0,0,0)"><p class="textLeft" style="color: rgba(0,0,0,0);">［programming languages]</p></li> <!-- to keep the same width -->
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+          </ul>
+      </div>
+<!-- empty template TO FILL WITH TIME-->
+        <div id="contentBox"> 
+          <ul>
+            <li><p class="textLeft" style="color: lime;">［comp. sci. subjets]<i style="color: rgba(0,0,0,0);">---</i></p></li> <!-- to keep the same width -->
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 100%;"><i>algorithms</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 75%;"><i>graphs,trees,automata</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 90%; white-space: nowrap;"><i>turing machines</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 100%;"><i>information's coding</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 100%;"><i>Comb/seq circuits</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 99%;"><i>comp. architecture</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 75%;"><i>unix/linux systems</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 86%;"><i>cellular automata</i></p>
+            </div>
+          </ul>
+      </div>
+        <div id="contentBox"> 
+          <ul>
+            <li style="color: rgba(0,0,0,0)"><p class="textLeft" style="color: rgba(0,0,0,0);">［programming languages]</p></li> <!-- to keep the same width -->
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 100%;"><i>linear structures</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+          </ul>
+      </div>
+        <div id="contentBox"> 
+          <ul>
+            <li style="color: rgba(0,0,0,0)"><p class="textLeft" style="color: rgba(0,0,0,0);">［programming languages]</p></li> <!-- to keep the same width -->
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+          </ul>
+      </div>
+        <div id="contentBox"> 
+          <ul>
+            <li style="color: rgba(0,0,0,0)"><p class="textLeft" style="color: rgba(0,0,0,0);">［programming languages]</p></li> <!-- to keep the same width -->
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+          </ul>
+      </div>
+        <div id="contentBox"> 
+          <ul>
+            <li style="color: rgba(0,0,0,0)"><p class="textLeft" style="color: rgba(0,0,0,0);">［programming languages]</p></li> <!-- to keep the same width -->
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+          </ul>
+      </div>
+        <div id="contentBox"> 
+          <ul>
+            <li style="color: rgba(0,0,0,0)"><p class="textLeft" style="color: rgba(0,0,0,0);">［programming languages]</p></li> <!-- to keep the same width -->
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+          </ul>
+      </div>
+<!-- END OF empty template TO FILL WITH TIME-->
+        <div id="contentBox"> 
+          <ul>
+            <li><p class="textLeft" style="color: lime;">［other subjets]<i style="color: rgba(0,0,0,0);">--------</i></p></li> <!-- to keep the same width -->
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 60%; white-space: nowrap;"><i">linear algebra - l1</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 80%;"><i>electricity - l1</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+          </ul>
+      </div>
+        <div id="contentBox"> 
+          <ul>
+            <li><p class="textLeft" style="color: lime">［languages]<i style="color: rgba(0,0,0,0);">------------</i></p></li> <!-- to keep the same width -->
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 100%;"><i">french (fluent)</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 100%;"><i">english (fluent)</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 25%; white-space: nowrap;"><i">chinese (hsk1 level)</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 10%; white-space: nowrap;"><i">japanese (beginner)</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 5%; white-space: nowrap;"><i">vietnamese (beginner)</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+            <div style="box-sizing:border-box; background-color: rgba(255,255,255,0.1); width: 100%;">
+              <p class="textLeft" style="color: white; font-size: 13px; box-sizing:border-box; background-color: green; width: 0%;"><i style="color: rgba(0,0,0,0);">name</i></p>
+            </div>
+          </ul>
+      </div>
+    </div>
         <button class="buttonCollapsible"><p class="textLeft" style="color: lime;"><b>〈 hobbies and interests 〉</b></p></button>
         <div class="content">
           <ul>

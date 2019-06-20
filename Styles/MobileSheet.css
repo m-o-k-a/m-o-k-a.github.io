@@ -125,6 +125,26 @@ hr.sub {
     background-image: linear-gradient(to right, rgba(0,255,0,0.5), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0), rgba(0,255,255,0));
 }
 
+/* FLEXBOXES */
+#mainBox {
+  /* parent flexbox */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  border-style: none none none none;
+  margin: left; 
+  background-color: rgba(255,255,255,0);
+}
+#contentBox {
+  /* content flexbox */
+  display: flex;
+  flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: left; 
+}
+
 /* CSS - PARTICLES.JS */
 #particles-js {
   position: absolute;
