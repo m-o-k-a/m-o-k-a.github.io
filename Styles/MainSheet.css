@@ -42,6 +42,15 @@ input {
 }
 
 /* CSS - CLASS */
+.menu {
+  text-align: center;
+  position: fixed;
+  background-color: #000018; 
+  top: 0%;
+  width: 100%;
+  border-style: hidden hidden solid hidden;
+  border-color: white;
+}
 .textTitle {
     /* text properties for title */
     color: white;
