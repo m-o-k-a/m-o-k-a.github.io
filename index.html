@@ -8,15 +8,36 @@
     <script src="Scripts/mainScript.js" type="text/javascript"></script>
   </head>
   <body>
-    <!-- static manu -->
-    <nav class="menu">
-      <p class="textTitle">
-        <a href="#aboutme" style="color: white;">〈 about Me 〉</a>
-        <a href="#personalproject" style="color: white;">〈 personnal projects 〉</a>
-        <a href="#contactme" style="color: white;">〈 contact Me 〉</a>
-      </p>
-    </nav>
-    <br><br><br>
+    <!-- static menu -->
+    <div class="menu">
+      <button onclick="openMenu()" class="menuButton">⚫⚫⚫</button>
+      <br>
+      <div id="menu" class="menuContent">
+        <a href="#aboutme">〈 about Me 〉</a><br>
+        <a href="#personalproject">〈 personnal projects 〉</a><br>
+        <a href="#contactme">〈 contact Me 〉</a>
+      </div>
+    </div>
+    <!-- Script for Menu -->
+    <script>
+      function openMenu() {
+        //get the element to show or hide
+        document.getElementById("menu").classList.toggle("show");
+      }
+      //onclick, check if menu is opened or closed and do the action
+      window.onclick = function(event) {
+        if (!event.target.matches('.menuButton')) {
+          var dropdowns = document.getElementsByClassName("menuContent");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+    </script>
     <!--background implementation with particle-js library -->
     <div id="particles-js"></div>
     <div>

@@ -43,14 +43,47 @@ input {
 
 /* CSS - CLASS */
 .menu {
-  text-align: center;
   position: fixed;
-  background-color: #000018; 
+  right: 10px;
   top: 0%;
-  width: 99.15%;
-  border-style: hidden hidden solid hidden;
-  border-color: white;
+  direction: rtl;
 }
+.menuButton {
+  background-image: none;
+  background-color: rgba(0,0,0,0);
+  padding: 20%;
+  font-size: 16px;
+  border-style: dashed;
+  background-color: rgba(0,0,0,0);
+  color: white;
+}
+.menuContent {
+  float: right;
+  display: none;
+  position: absolute;
+  width: 260px;
+  overflow: auto;
+  z-index: 1;
+}
+.menuContent a {
+  display: block;
+  text-align: right;
+  color: cyan;
+}
+.show {
+  display: block; 
+  border-style: dashed; 
+  border-color: white; 
+  background-color: rgba(0,0,0,0);
+}
+.menuButton:hover, .show:hover, .menuContent a:hover {
+  color: lime;
+  border-color: lime;
+}
+.menuButton:hover, .show:hover {
+  background-color: #000018;
+}
+
 .textTitle {
     /* text properties for title */
     color: white;
@@ -175,4 +208,3 @@ hr.sub {
   background-position: 100% 300%; /*value to change each time */
   z-index: -1;
 }
-
