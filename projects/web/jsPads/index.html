@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS Pads</title>
+    <style>
+    	body { background: url(bkg11.jpg) no-repeat center center; }
+    	* { padding: 0; margin: 0; text-align: center; }
+    	canvas { display: block; margin: 0 auto; background: url(bkg1.jpg) no-repeat center center; }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width=screen.width height=screen.height></canvas>
+
+<script>
+	//VARIABLES RELATED TO CANVAS
+	var canvas = document.getElementById("myCanvas");
+	var ctx = canvas.getContext("2d");
+	var ctxWidth = canvas.width;
+	var ctxHeight = canvas.height;
+	var action = 0; //0 = no cell, 1= cell,
+	var count = 0;
+	var tick = 0;
+	var updateSpeed = 0;
+
+	//VARIABLES RELATED TO CELLS
+	var cellColumns = 50;
+	var cellRows = 50;
+	var cellWidth = Math.floor(ctxWidth/cellRows);
+	var cellHeight = Math.floor(ctxHeight/cellColumns);
+	var thisCellNeigh = 0;
+	var seed = 10;
+	var cellColor = "rgb(0,255,255)";
+	var startto = 0; //0123 - NESW
+	var newX = 0;
+	var newY = 0;
+
+	//INITIALISE THE CELLS TABS
+	var cells = [];
+	initializeCells();
+	//INITIALIZE FUNCTION : USED WHEN USER CHANGE PROPERTIES AND ON STARTUP
+	function initializeCells() {
+		for (var col = 0; col < cellColumns; col++) {
+			cells[col] = [];
+			for (var row = 0; row < cellRows; row++) {
+				cells[col][row] = {x: cellWidth*row, y: cellHeight*col, state: 0};
+	}}}
+
+	//CHANGE STATE
+	function change(col, row) {
+		cells[col][row].state = !(cells[col][row].state);
+	}
+
+	//PREFILL FUNCTION: WILL CREATE THE TRUE PATH THEN CALL FILL FUNCTION TO ADD RANDOM WALL
+	function prefill() {
+		//STEP ZERO: CLEAN CANVAS
+		clearCells();
+		//STEP 1: fill counter of the square
+		for (var col = 0; col < cellColumns; col++) {
+			cells[col][0].state = 1;
+			cells[col][cellColumns-1].state = 1;
+		}
+		for (var row = 0; row < cellRows; row++) {
+			cells[0][row].state = 1;
+			cells[cellRows-1][row].state = 1;
+		}
+		//STEP 2: FIND A PATH FROM A CORNER TO ANOTHER ONE
+		//save start position
+		startto = Math.floor(Math.random()*4)
+		var startX = 0;
+		var startY = 0;
+		if (startto == 0) { newX = Math.floor(Math.random()*cellColumns-1); newY = 0; cells[newX][newY].state = 2; startX = newX; startY = newY; newY += 1; cells[newX][newY].state = 2;}
+		if (startto == 1) { newX = cellColumns-1; newY = Math.floor(Math.random()*cellRows-1); cells[newX][newY].state = 2; startX = newX; startY = newY;  newX -= 1; cells[newX][newY].state = 2;}
+		if (startto == 2) { newX = Math.floor(Math.random()*cellColumns-1); newY = cellRows-1; cells[newX][newY].state = 2; startX = newX; startY = newY;  newY -= 1; cells[newX][newY].state = 2;}
+		if (startto == 3) { newX = 0; newY = Math.floor(Math.random()*cellRows-1); cells[newX][newY].state = 2; startX = newX; startY = newY;  newX += 1; cells[newX][newY].state = 2;}
+		//STEP 3: BEGIN TO FILL UNTIL WE REACH ANOTHER CORNER
+		var previousX = startX;
+		var previousY = startY;
+		while ((newX != 0 && newX != cellColumns-1) && (newY != 0 && newY != cellRows-1)) {
+			console.log("search path...\nNEW X:"+newY+" NEW Y:"+newX);
+			startto = Math.floor(Math.random()*2)
+			if (startto == 0) { newY = (newY-1) + Math.floor(Math.random()*2); }
+			if (startto == 1) { newX = (newX-1) + Math.floor(Math.random()*2); }
+			//if ((newX == startX || newY == startY)) {newX = previousX; newY = previousY;}
+			previousX = newX; 
+			previousY = newY;
+			console.log("search path...\nNEW X:"+newY+" NEW Y:"+newX);
+			if ((newX < cellColumns-1 || newX < 0) && (newY < cellRows-1 || newY < 0)) { cells[newX][newY].state = 2; }
+			fill();
+		}
+		//STEP 4: FILL
+		fill();
+	}
+
+
+	//FILL FUNCTION: DRAW THE WALLS
+	function fill() {
+		for (var col = 0; col < cellColumns; col++) {
+			for (var row = 0; row < cellRows; row++) {
+				//draw grid
+				ctx.beginPath();
+    			ctx.rect(col*cellWidth, row*cellHeight, cellWidth, cellHeight);
+    			ctx.lineWidth = "1";
+    			ctx.strokeStyle = "white";
+				ctx.stroke();
+				ctx.closePath();
+
+				if (cells[col][row].state == 1) {
+					ctx.beginPath();
+    				ctx.rect(col*cellWidth, row*cellHeight, cellWidth, cellHeight);
+    				ctx.fillStyle = cellColor;
+    				ctx.lineWidth = "1";
+    				ctx.strokeStyle = "white";
+					ctx.fill();
+					ctx.stroke();
+					ctx.closePath();
+				}
+				if (cells[col][row].state == 2) {
+					ctx.beginPath();
+    				ctx.rect(col*cellWidth, row*cellHeight, cellWidth, cellHeight);
+    				ctx.fillStyle = "rgb(255,0,0)";
+    				ctx.lineWidth = "1";
+    				ctx.strokeStyle = "white";
+					ctx.fill();
+					ctx.stroke();
+					ctx.closePath();
+	}}}}
+
+	//ENDFILL FUNCTION: DRAW THE SELECTED CELL AS EMPTY CELL
+
+
+	//CLEARCELLS FUNCTION: RESTART
+	function clearCells() {
+		for (var col = 0; col < cellColumns; col++) {
+			for (var row = 0; row < cellRows; row++) {
+				cells[col][row].state = 0;
+		}}
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		fill();
+	}
+
+	//GETNEIGH FUNCTION: RETURN THE NUMBER OF NEIGHBOOR OF THE CELL
+	function getNeigh(col, row) {
+		thisCellNeigh = 0;
+		for (var c = col-1; c <= col+1; c++) {
+			for (var r = row-1; r <= row+1; r++) {
+					if (c >= 0 && c < cellColumns && r >= 0 && r < cellRows) {
+						if(cells[c][r].state == 1) { thisCellNeigh++;
+	}}}}}
+
+
+	//UPDATEPARAM FUNCTION : TO LEAVE USER HAVE MORE PERSONALISATION
+	function updateParam(){
+		seed = document.getElementById("formSeed").value;
+		cellColumns = document.getElementById("formSize").value;
+		cellRows = document.getElementById("formSize").value;
+		updateSpeed = document.getElementById("formSpeed").value;
+		cellWidth = Math.floor(ctxWidth/cellRows);
+		cellHeight = Math.floor(ctxHeight/cellColumns);
+		initializeCells();
+		cellColor = "rgb("+(document.getElementById("formR").value)%256+","+(document.getElementById("formG").value)%256+",0"+(document.getElementById("formB").value)%256+")";
+		//ctx.clearRect(0, 0, canvas.width, canvas.height);
+		fill();
+	}
+
+	//MAIN LOOP
+	function ticks(){ 
+		tick++; 
+		if (tick >= updateSpeed) { main(); tick = 0;
+	}}setInterval(ticks, 60);
+	 
+	function main() {
+		if (action == 1) {
+			//clear the canvas
+			document.getElementById("gen").innerHTML = "Generation N° "+generation+ " - Nb of living cells: "+count+"/"+cellColumns*cellRows;;
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			updateCells();
+			fill();
+			countCell();
+	}}
+</script>
+</body>
+</html>
